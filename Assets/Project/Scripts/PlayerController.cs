@@ -100,9 +100,7 @@ namespace Project.Scripts
 
         private void OnTriggerEnter([NotNull] Collider other)
         {
-            // Boxes mark spawning points.
-            // We need to prevent spawning new instances in front of us when exiting into a T-section.
-            // We're handling this special case in the movement (rotation) code.
+
             if (other is BoxCollider && !GenerateWorld.LastPlatform.CompareTag("platformTSection"))
             {
                 GenerateWorld.RunDummy();
@@ -143,7 +141,6 @@ namespace Project.Scripts
                 {
                     _falling = true;
 
-                    // Trigger the restarting and everything.
                     OnCollisionEnter(null);
                     return;
                 }
@@ -193,7 +190,6 @@ namespace Project.Scripts
 
             GenerateWorld.RunDummy();
 
-            // Build more platforms into the future, unless we just generated a T-section
             if (!GenerateWorld.LastPlatform.CompareTag("platformTSection"))
             {
                 GenerateWorld.RunDummy();
@@ -232,7 +228,6 @@ namespace Project.Scripts
         {
             magic.SetActive(false);
 
-            // Reset spell forces.
             _magicRb.velocity = Vector3.zero;
         }
 

@@ -2,9 +2,7 @@ using JetBrains.Annotations;
 
 namespace Project.Scripts
 {
-    /// <summary>
-    /// The keys for <see cref="UnityEngine.PlayerPrefs"/> values.
-    /// </summary>
+
     internal static class PlayerPrefKeys
     {
         // TODO: Might as well make these actual properties.
